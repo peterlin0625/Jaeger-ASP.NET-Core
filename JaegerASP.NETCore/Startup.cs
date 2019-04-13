@@ -1,15 +1,13 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+using Jaeger;
+using Jaeger.Samplers;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Logging;
-using Microsoft.Extensions.Options;
+using OpenTracing;
+using OpenTracing.Util;
 
 namespace JaegerASP.NETCore
 {
@@ -25,6 +23,22 @@ namespace JaegerASP.NETCore
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            string serviceName = AppDomain.CurrentDomain.FriendlyName;
+            var tracer = new Tracer.Builder(serviceName)
+                .WithSampler(new ConstSampler(true))
+                .Build();
+
+            //加入 OpenTracing
+            services.AddOpenTracing();
+            services.AddSingleton<ITracer>(serviceProvider =>
+            {
+                //註冊 Jaeger tracer
+                GlobalTracer.Register(tracer);
+
+                return tracer;
+            });
+
+
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
         }
 
