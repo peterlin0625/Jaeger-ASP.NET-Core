@@ -1,4 +1,5 @@
 ﻿using System;
+using Helpers;
 using Jaeger;
 using Jaeger.Samplers;
 using Microsoft.AspNetCore.Builder;
@@ -37,6 +38,8 @@ namespace JaegerASP.NETCore
 
                 return tracer;
             });
+
+            services.AddSingleton<ResponseHelper>();
 
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);

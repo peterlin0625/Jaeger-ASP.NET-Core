@@ -2,6 +2,8 @@
 Microsoft Visual Studio Solution File, Format Version 12.00
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JaegerASP.NETCore", "JaegerASP.NETCore\JaegerASP.NETCore.csproj", "{9EBAE989-8677-4DE9-A8EE-8B87475923EB}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Helpers", "Helpers\Helpers.csproj", "{2ADD287C-A515-44B6-B33F-6E84D85A7861}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -12,5 +14,9 @@ Global
 		{9EBAE989-8677-4DE9-A8EE-8B87475923EB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9EBAE989-8677-4DE9-A8EE-8B87475923EB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9EBAE989-8677-4DE9-A8EE-8B87475923EB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2ADD287C-A515-44B6-B33F-6E84D85A7861}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2ADD287C-A515-44B6-B33F-6E84D85A7861}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2ADD287C-A515-44B6-B33F-6E84D85A7861}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2ADD287C-A515-44B6-B33F-6E84D85A7861}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

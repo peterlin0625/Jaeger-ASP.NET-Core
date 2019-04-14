@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Helpers;
 using Microsoft.AspNetCore.Mvc;
 
 namespace JaegerASP.NETCore.Controllers
@@ -10,11 +11,19 @@ namespace JaegerASP.NETCore.Controllers
     [ApiController]
     public class ValuesController : ControllerBase
     {
+
+        public readonly ResponseHelper _responseHelper;
+
+        public ValuesController(ResponseHelper responseHelper)
+        {
+            _responseHelper = responseHelper;
+        }
+
         // GET api/values
         [HttpGet]
-        public ActionResult<IEnumerable<string>> Get()
+        public ActionResult<string> Get()
         {
-            return new string[] {"value1", "value2"};
+            return _responseHelper.GetResponse( new string[] {"value1", "value2"});
         }
 
         // GET api/values/5
